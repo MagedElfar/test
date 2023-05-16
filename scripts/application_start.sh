@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ec2-user/axelor-api
+sudo chmod -R 777 /home/ec2-user/express-app
 
 #navigate into our working directory where we have all our github files
-cd /home/ec2-user/axelor-api
+cd /home/ec2-user/express-app
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"	
@@ -14,8 +14,5 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 npm install
 
-#compile type script
-npm run build
-
 #start our node app in the background
-npm start
+node app.js > app.out.log 2> app.err.log < /dev/null & 
