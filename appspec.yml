@@ -2,17 +2,18 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/express-app
+    destination: /home/ec2-user/axelor-api
+file_exists_behavior: OVERWRITE
 hooks:
-  ApplicationStop:
+ ApplicationStop:
     - location: scripts/application_stop.sh
-      timeout: 300
+      timeout: 180
       runas: ec2-user
   BeforeInstall:
     - location: scripts/before_install.sh
-      timeout: 300
+      timeout: 180
       runas: ec2-user
   ApplicationStart:
     - location: scripts/application_start.sh
-      timeout: 300
+      timeout: 180
       runas: ec2-user
